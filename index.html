@@ -10,7 +10,8 @@
   <meta property="og:description" content="Diagnóstico remoto R$ 49, otimização gamer e instalação de IA. Atendimento Brasil via Pix." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://heavy-metal-tech.github.io" />
-  <meta property="og:image" content="/assets/hmt-cover.png" />
+  <!-- Substitua pelo caminho real após enviar a imagem do logo para /assets/ -->
+  <!-- <meta property="og:image" content="/assets/hmt-cover.png" /> -->
   <meta name="theme-color" content="#0D0D0D" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -77,8 +78,8 @@
   <header>
     <div class="container nav">
       <a class="brand" href="#top" aria-label="Heavy Metal Tech home">
-        <img src="/assets/heavy-metal-tech-logo.png" alt="Heavy Metal Tech logo" />
-        <h1>HEAVY METAL TECH</h1>
+        <img src="/assets/hmt-logo.png" alt="Heavy Metal Tech logo" onerror="this.style.display='none';document.getElementById('txt-logo').style.display='inline-block'"/>
+        <h1 id="txt-logo" style="display:none">HEAVY METAL TECH</h1>
       </a>
       <a href="https://wa.me/5511947250711?text=Quero%20diagn%C3%B3stico%20remoto%20Heavy%20Metal%20Tech" target="_blank" class="btn primary">⚡ WhatsApp</a>
     </div>
@@ -91,13 +92,42 @@
     </section>
 
     <section id="servicos">
-      <h3>Serviços</h3>
-      <ul>
-        <li>Diagnóstico remoto R$49</li>
-        <li>Otimização Gamer</li>
-        <li>Instalação de IA no PC</li>
-      </ul>
-    </section>
+    <div class="container">
+      <h3 class="section-title">Serviços</h3>
+      <div class="grid cols-3">
+        <article class="service">
+          <h3>Diagnóstico & Limpeza</h3>
+          <p>Varredura de processos, remoção de malware, correção de inicialização, drivers e Windows Update. Relatório ao final.</p>
+          <span class="tag">Remoto • 15–30 min</span>
+        </article>
+        <article class="service">
+          <h3>Otimização Gamer (FPS)</h3>
+          <p>Destravamos performance com ajustes finos: BIOS, GPU, perfil de energia, shader cache, latência e serviços.</p>
+          <span class="tag">Sem trocar peças</span>
+        </article>
+        <article class="service">
+          <h3>Formatação Inteligente</h3>
+          <p>Backup assistido, instalação limpa, partições corretas, drivers e apps essenciais, hardening e restauração.</p>
+          <span class="tag">Windows 10/11</span>
+        </article>
+        <article class="service">
+          <h3>Instalação de IA no PC</h3>
+          <p>Setup de ChatGPT Desktop e <b>IA local (Ollama)</b>, automações úteis (Excel/e‑mail) e <b>Whisper</b> para transcrever áudios. Atalhos + guia de uso.</p>
+          <span class="tag">Produtividade & estudo</span>
+        </article>
+        <article class="service">
+          <h3>Consultoria de Upgrade</h3>
+          <p>Lista de peças custo‑benefício, gargalos atuais e roteiro de upgrade por prioridade. Links de compra.</p>
+          <span class="tag">Custo‑benefício</span>
+        </article>
+        <article class="service">
+          <h3>Sites Profissionais</h3>
+          <p>Landing pages rápidas (GitHub Pages), SEO, WhatsApp e Pixel. Também faço <b>backend</b> (Next.js/Node) quando precisar.</p>
+          <span class="tag">Entrega ágil</span>
+        </article>
+      </div>
+    </div>
+  </section>
 
     <section id="comentarios">
       <h3>Comentários</h3>
@@ -117,6 +147,43 @@
     </section>
 
     <section id="comentarios">
+      <h3>Comentários</h3>
+      <!-- Espaço reservado para o sistema de comentários futuro -->
+      <div class="comentarios-placeholder">Em breve: seção de comentários aqui ⚙️</div>
+    </section>
+    <section id="ia" class="container">
+      <h3 class="section-title">IA no PC – Instalação e Produtividade</h3>
+      <div class="grid cols-3">
+        <div class="service">
+          <h3>Básico</h3>
+          <p>ChatGPT Desktop/Web configurado, prompts rápidos e atalho global (AutoHotkey). Ideal para estudos e e‑mails.</p>
+          <div class="tag">a partir de R$ 149</div>
+        </div>
+        <div class="service">
+          <h3>Local (Offline)</h3>
+          <p>Instalação do <b>Ollama</b> + modelo local (ex.: llama3.1:8b). Funciona sem internet e sem enviar dados para a nuvem.</p>
+          <div class="tag">a partir de R$ 249</div>
+        </div>
+        <div class="service">
+          <h3>Produtividade+</h3>
+          <p>+ <b>Whisper</b> (transcrição de reuniões/áudios), automações (Excel/e‑mail) e mini‑treinamento de uso.</p>
+          <div class="tag">a partir de R$ 299</div>
+        </div>
+      </div>
+      <div class="actions" style="margin-top:12px">
+        <a class="btn primary" target="_blank" href="https://wa.me/5511947250711?text=Quero%20instalar%20IA%20no%20meu%20PC%20com%20a%20Heavy%20Metal%20Tech">Quero IA no meu PC</a>
+        <a class="btn" target="_blank" href="https://wa.me/5511947250711?text=Tenho%20d%C3%BAvidas%20sobre%20IA%20no%20PC">Tirar dúvidas</a>
+      </div>
+    </section>
+
+    <section id="websites" class="container">
+      <h3>Websites (Landing Pages)</h3>
+      <p>Criação de sites rápidos e leves hospedados no GitHub Pages ou plataformas free, prontos para anúncios: performance, SEO, WhatsApp e Pixel. Se precisar de áreas logadas e banco de dados, eu também desenvolvo <b>backend</b> (Node/Next).</p>
+      <p style="color:#a9a9a9">*Valores servem como âncora e podem variar conforme escopo. Projetos maiores recebem proposta sob medida.</p>
+      <a class="btn primary" target="_blank" href="https://wa.me/5511947250711?text=Quero%20um%20site%20Heavy%20Metal%20Tech">Pedir orçamento no WhatsApp</a>
+    </section>
+
+    <section id="comentarios" class="container">
       <h3>Comentários</h3>
       <!-- Espaço reservado para o sistema de comentários futuro -->
       <div class="comentarios-placeholder">Em breve: seção de comentários aqui ⚙️</div>
