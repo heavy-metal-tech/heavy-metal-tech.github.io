@@ -1,146 +1,147 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Heavy Metal Tech</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Heavy Metal Tech — Diagnóstico Remoto, Otimização & IA para PC</title>
+  <meta name="description" content="Diagnóstico remoto em 15 minutos, formatação, otimização gamer (FPS) e instalação de IA no PC. Atendimento em todo o Brasil via Pix." />
+  <meta name="author" content="Heavy Metal Tech" />
+  <meta property="og:title" content="Heavy Metal Tech — Seu PC mais rápido hoje" />
+  <meta property="og:description" content="Diagnóstico remoto R$ 49, otimização gamer e instalação de IA. Atendimento Brasil via Pix." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://heavy-metal-tech.github.io" />
+  <meta property="og:image" content="/assets/hmt-cover.png" />
+  <meta name="theme-color" content="#0D0D0D" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;800&family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #121212;
-      color: #f0f0f0;
+    :root{
+      --bg:#0D0D0D;
+      --text:#F2F2F2;
+      --muted:#A9A9A9;
+      --metal:#C0C0C0;
+      --accent:#FF1E00;
+      --radius:18px;
+      --shadow: 0 10px 30px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.03);
     }
-    header {
-      background: #1c1c1c;
-      color: #f0f0f0;
-      padding: 25px;
-      text-align: center;
-      border-bottom: 3px solid #27ae60;
-    }
-    nav {
-      margin: 15px 0;
-    }
-    nav a {
-      margin: 0 12px;
-      text-decoration: none;
-      color: #27ae60;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-    nav a:hover {
-      color: #2ecc71;
-    }
-    section {
-      padding: 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-    h2 {
-      color: #27ae60;
-      border-bottom: 2px solid #27ae60;
-      padding-bottom: 5px;
-    }
-    .card {
-      background: #1e1e1e;
-      padding: 15px;
-      margin: 15px 0;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.6);
-    }
-    .button {
-      display: inline-block;
-      padding: 10px 15px;
-      background: #27ae60;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      margin-top: 10px;
-      transition: background 0.3s;
-    }
-    .button:hover {
-      background: #2ecc71;
-    }
-    footer {
-      text-align: center;
-      background: #1c1c1c;
-      color: #aaa;
-      padding: 15px;
-      margin-top: 20px;
-      border-top: 3px solid #27ae60;
-    }
-  </style>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font-family:'Exo 2',sans-serif;}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1120px;margin:0 auto;padding:24px}
+    header{position:sticky;top:0;background:rgba(13,13,13,.7);backdrop-filter:blur(8px);z-index:50;border-bottom:1px solid #1f1f1f}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand img{height:60px;filter:drop-shadow(0 0 8px rgba(255,30,0,.45)) drop-shadow(0 0 18px rgba(255,30,0,.25));animation:neonPulse 2.6s ease-in-out infinite;} 
+    /* Buttons */
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:12px;border:1px solid #2b2b2b;background:linear-gradient(180deg,#171717,#0f0f0f);box-shadow:0 6px 20px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);transition:transform .18s ease, box-shadow .25s ease, border-color .25s ease}
+    .btn:hover{transform:translateY(-1px);border-color:#3a3a3a;box-shadow:0 10px 26px rgba(0,0,0,.45), 0 0 18px rgba(255,30,0,.12) inset}
+    .btn.primary{position:relative;border-color:#3a3a3a;background:linear-gradient(180deg,#1b1b1b,#121212)}
+    .btn.primary:after{content:"";position:absolute;inset:0;border-radius:12px;box-shadow:0 0 22px rgba(255,30,0,.35);pointer-events:none}
+
+    /* Neon pulse for logo */
+    @keyframes neonPulse{0%,100%{filter:drop-shadow(0 0 6px rgba(255,30,0,.35)) drop-shadow(0 0 14px rgba(255,30,0,.20))}50%{filter:drop-shadow(0 0 14px rgba(255,30,0,.65)) drop-shadow(0 0 28px rgba(255,30,0,.40))}}
+
+    /* Interactive list hover */
+    #servicos li{list-style: none; margin:8px 0; padding:10px 12px; background:#111; border:1px solid #232323; border-radius:10px; transition:transform .18s ease, box-shadow .25s ease}
+    #servicos li:hover{transform:translateY(-1px); box-shadow:0 10px 24px rgba(0,0,0,.35)}
+
+    /* Placeholder styling */
+    .comentarios-placeholder{padding:20px;border:1px dashed #444;border-radius:10px;text-align:center;color:#888;background:repeating-linear-gradient(45deg,rgba(255,255,255,.02) 0 10px, transparent 10px 20px)}
+  /* Buttons */
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:12px;border:1px solid #2b2b2b;background:linear-gradient(180deg,#171717,#0f0f0f);box-shadow:0 6px 20px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);transition:transform .18s ease, box-shadow .25s ease, border-color .25s ease}
+    .btn:hover{transform:translateY(-1px);border-color:#3a3a3a;box-shadow:0 10px 26px rgba(0,0,0,.45), 0 0 18px rgba(255,30,0,.12) inset}
+    .btn.primary{position:relative;border-color:#3a3a3a;background:linear-gradient(180deg,#1b1b1b,#121212)}
+    .btn.primary:after{content:"";position:absolute;inset:0;border-radius:12px;box-shadow:0 0 22px rgba(255,30,0,.35);pointer-events:none}
+
+    /* Neon pulse for logo */
+    @keyframes neonPulse{0%,100%{filter:drop-shadow(0 0 6px rgba(255,30,0,.35)) drop-shadow(0 0 14px rgba(255,30,0,.20))}50%{filter:drop-shadow(0 0 14px rgba(255,30,0,.65)) drop-shadow(0 0 28px rgba(255,30,0,.40))}}
+
+    /* Interactive list hover */
+    #servicos li{list-style: none; margin:8px 0; padding:10px 12px; background:#111; border:1px solid #232323; border-radius:10px; transition:transform .18s ease, box-shadow .25s ease}
+    #servicos li:hover{transform:translateY(-1px); box-shadow:0 10px 24px rgba(0,0,0,.35)}
+
+    /* Placeholder styling */
+    .comentarios-placeholder{padding:20px;border:1px dashed #444;border-radius:10px;text-align:center;color:#888;background:repeating-linear-gradient(45deg,rgba(255,255,255,.02) 0 10px, transparent 10px 20px)}
+
+    /* WhatsApp Floating Bubble */
+    .whatsapp-fab{position:fixed;right:18px;bottom:18px;z-index:60;display:flex;align-items:center;gap:10px;padding:10px 14px;background:#121212;border:1px solid #2a2a2a;border-radius:999px;box-shadow:0 10px 24px rgba(0,0,0,.45);transition:transform .18s ease, box-shadow .25s ease}
+    .whatsapp-fab:hover{transform:translateY(-2px);box-shadow:0 16px 36px rgba(0,0,0,.55)}
+    .whatsapp-fab .dot{width:10px;height:10px;border-radius:999px;background:#25D366;box-shadow:0 0 12px #25D366}
+    .whatsapp-fab .label{font-weight:600;color:#eaeaea}
+
+    @media (max-width:520px){.whatsapp-fab .label{display:none}}
+</style>
 </head>
 <body>
   <header>
-    <h1>⚡ Heavy Metal Tech ⚡</h1>
-    <p>Manutenção, consultoria e suporte remoto para PCs</p>
-    <nav>
-      <a href="#servicos">Serviços</a>
-      <a href="#precos">Preços</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#contato">Contato</a>
-    </nav>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Heavy Metal Tech home">
+        <img src="/assets/heavy-metal-tech-logo.png" alt="Heavy Metal Tech logo" />
+        <h1>HEAVY METAL TECH</h1>
+      </a>
+      <a href="https://wa.me/5511947250711?text=Quero%20diagn%C3%B3stico%20remoto%20Heavy%20Metal%20Tech" target="_blank" class="btn primary">⚡ WhatsApp</a>
+    </div>
   </header>
 
-  <section id="servicos">
-    <h2>Serviços</h2>
-   <div class="card">
-      <h3>🛠️ Criação de alguns sites</h3>
-      <p>Preços variam de acordo com complexidade.</p>
-    </div>
-    <div class="card">
-      <h3>🛠️ Manutenção Remota</h3>
-      <p>Remoção de vírus, otimização do Windows, instalação de programas e drivers.</p>
-    </div>
-    <div class="card">
-      <h3>🖥️ Manutenção Presencial</h3>
-      <p>Limpeza interna, troca de pasta térmica, upgrades e montagem de PCs.</p>
-    </div>
-    <div class="card">
-      <h3>🎮 Consultoria Gamer</h3>
-      <p>Escolha de peças, upgrades e otimização para jogos.</p>
-    </div>
-    <div class="card">
-      <h3>📦 Pacote Mensal</h3>
-      <p>Suporte remoto até 3 vezes no mês, entre em contato para saber mais.</p>
-    </div>
-  </section>
+  <main class="container">
+    <section id="hero">
+      <h2>Seu PC travando?</h2>
+      <p>Diagnóstico remoto, otimização e instalação de IA — atendimento em todo Brasil via Pix.</p>
+    </section>
 
-  <section id="precos">
-    <h2>Preços</h2>
-    <div class="card">
+    <section id="servicos">
+      <h3>Serviços</h3>
       <ul>
-        <li>Diagnóstico remoto: R$100</li>
-        <li>Remoção de vírus / otimização: R$80 a R$100</li>
-        <li>Formatação completa: R$200</li>
-        <li>Consultoria de upgrade: R$100 a R$200</li>
+        <li>Diagnóstico remoto R$49</li>
+        <li>Otimização Gamer</li>
+        <li>Instalação de IA no PC</li>
       </ul>
-      <p><em>Valores podem variar conforme a complexidade.</em></p>
-    </div>
-  </section>
+    </section>
 
-  <section id="sobre">
-    <h2>Sobre Mim</h2>
-    <div class="card">
-      <p>Sou William, técnico mecatrônico e fundador da Heavy Metal Tech 🤘.  
-         Especialista em hardware e software de PCs, ajudo clientes a manter seus computadores rápidos, estáveis e prontos para qualquer desafio, seja trabalho ou jogos pesados.</p>
-    </div>
-  </section>
+    <section id="comentarios">
+      <h3>Comentários</h3>
+      <!-- Espaço reservado para o sistema de comentários futuro -->
+      <div class="comentarios-placeholder" style="padding:20px;border:1px dashed #444;border-radius:10px;text-align:center;color:#888;">Em breve: seção de comentários aqui ⚙️</div>
+    </section>
+    <section id="websites" class="container">
+      <h3>Websites (Landing Pages)</h3>
+      <p>Criação de sites rápidos e leves hospedados no GitHub Pages, prontos para anúncios: performance, SEO, integração com WhatsApp e Pixel.</p>
+      <ul>
+        <li>⚡ <b>Landing Page PRO</b> (1 página, CTA WhatsApp, SEO básico, OG/social) — <b>a partir de R$ 699</b></li>
+        <li>🧭 <b>Site Lite 3 Seções</b> (Home + Serviços + Contato) — <b>a partir de R$ 1.190</b></li>
+        <li>🧠 <b>Plus IA</b> (captura de leads + automações simples) — <b>a partir de R$ 1.690</b></li>
+      </ul>
+      <p style="color:#a9a9a9">*Valores servem como âncora e podem variar conforme escopo. Projetos maiores recebem proposta sob medida após uma conversa rápida.</p>
+      <a class="btn primary" target="_blank" href="https://wa.me/5511947250711?text=Quero%20um%20site%20Heavy%20Metal%20Tech">Pedir orçamento no WhatsApp</a>
+    </section>
 
-  <section id="contato">
-    <h2>Contato</h2>
-    <div class="card">
-      <p>Entre em contato pelo WhatsApp ou e-mail:</p>
-      <a class="button" href="https://wa.me/5511947250711" target="_blank">💬 Falar no WhatsApp</a>
-      <p>Email: <strong>wmat.wm@gmail.com</strong></p>
-    </div>
-  </section>
+    <section id="comentarios">
+      <h3>Comentários</h3>
+      <!-- Espaço reservado para o sistema de comentários futuro -->
+      <div class="comentarios-placeholder">Em breve: seção de comentários aqui ⚙️</div>
+    </section>
+  </main>
 
-  <footer>
-    <p>© 2025 Heavy Metal Tech - Todos os direitos reservados</p>
+  <footer class="container">
+    <p>© <span id="year"></span> Heavy Metal Tech • Todos os direitos reservados.</p>
   </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <!-- Floating WhatsApp Bubble -->
+  <a class="whatsapp-fab" href="https://wa.me/5511947250711?text=Ol%C3%A1%2C%20vim%20do%20site%20Heavy%20Metal%20Tech" target="_blank" rel="noopener">
+    <span class="dot"></span>
+    <span class="label">Fale agora no WhatsApp</span>
+  </a>
+
+  <!-- Analytics placeholders (paste your IDs) -->
+  <!-- Google Tag -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXX');</script> -->
+  <!-- Meta Pixel -->
+  <!-- <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','YOUR_PIXEL_ID');fbq('track','PageView');</script> -->
 </body>
+</html>
 </html>
