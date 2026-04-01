@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heavy Metal Tech — PC, IA & Sistemas para Pequenas Empresas</title>
+<meta name="description" content="Diagnóstico remoto de PC, instalação de IA e sistemas sob medida para pequenas empresas. Atendimento em todo o Brasil. 30 dias grátis.">
+<meta name="keywords" content="sistema para assistência técnica, sistema para pequenas empresas, otimização PC, IA no PC, sistema ordem de serviço, Heavy Metal Tech">
+<meta property="og:title" content="Heavy Metal Tech — PC mais rápido. Empresa mais organizada.">
+<meta property="og:description" content="Diagnóstico remoto, IA no PC e sistemas sob medida para pequenas empresas. Atendimento em todo o Brasil.">
+<meta property="og:url" content="https://heavy-metal-tech.github.io">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#080808;
+  --surface:#111111;
+  --card:#181818;
+  --card2:#1e1e1e;
+  --border:#242424;
+  --border2:#2e2e2e;
+  --white:#f0ede6;
+  --muted:#777;
+  --muted2:#555;
+  --accent:#e8c84a;
+  --accent-dark:#13110a;
+  --green:#4ade80;
+  --fd:'Syne',sans-serif;
+  --fb:'DM Sans',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:var(--fb);font-size:16px;line-height:1.65;overflow-x:hidden}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:1rem 2.5rem;background:rgba(8,8,8,0.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.logo{font-family:var(--fd);font-size:1rem;font-weight:800;letter-spacing:.06em;color:var(--accent);text-decoration:none}
+.logo em{color:var(--white);font-style:normal}
+.nav-links{display:flex;gap:1.75rem;align-items:center}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.82rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{background:var(--accent);color:var(--black)!important;padding:.45rem 1.1rem;border-radius:4px;font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;transition:opacity .2s}
+.nav-cta:hover{opacity:.85}
+
+/* BUTTONS */
+.btn{display:inline-block;padding:.8rem 1.6rem;border-radius:4px;font-weight:700;font-size:.88rem;text-decoration:none;letter-spacing:.02em;transition:opacity .2s,transform .15s;cursor:pointer;border:none;font-family:var(--fb)}
+.btn:hover{transform:translateY(-1px);opacity:.88}
+.btn-accent{background:var(--accent);color:var(--black)}
+.btn-ghost{background:transparent;color:var(--white);border:1px solid var(--border2)}
+.btn-ghost:hover{border-color:#555}
+.btn-wa{background:#25d366;color:#fff}
+.btn-block{display:block;text-align:center;width:100%}
+
+/* BADGE */
+.badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--surface);border:1px solid var(--border);color:var(--accent);font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.35rem .9rem;border-radius:2px}
+.badge-pulse::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* HERO */
+.hero{max-width:1100px;margin:0 auto;padding:6rem 2.5rem 5rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+h1{font-family:var(--fd);font-size:clamp(2.4rem,4.5vw,3.6rem);font-weight:800;line-height:1.08;letter-spacing:-.025em;margin-bottom:1.25rem}
+h1 .y{color:var(--accent)}
+.hero-sub{color:var(--muted);font-size:1rem;line-height:1.75;max-width:430px;margin-bottom:.85rem}
+.hero-note{font-size:.82rem;color:var(--muted2);margin-bottom:2rem;display:flex;align-items:center;gap:.5rem}
+.hero-note::before{content:'';width:20px;height:1px;background:var(--border2)}
+.hero-btns{display:flex;gap:.75rem;flex-wrap:wrap}
+
+/* MOCKUP */
+.mockup{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.25rem}
+.mock-topbar{display:flex;gap:6px;margin-bottom:1rem}
+.dot{width:10px;height:10px;border-radius:50%}
+.dot:nth-child(1){background:#e05252}.dot:nth-child(2){background:#e0a952}.dot:nth-child(3){background:#52c952}
+.mock-tabs{display:flex;margin-bottom:1rem;border-bottom:1px solid var(--border)}
+.mock-tab{font-size:.7rem;padding:.4rem .85rem;color:var(--muted)}
+.mock-tab.active{color:var(--accent);border-bottom:2px solid var(--accent);margin-bottom:-1px}
+.mock-row{display:grid;grid-template-columns:1.8fr 1fr .9fr;gap:6px;margin-bottom:6px}
+.mc{background:var(--card);border-radius:4px;padding:.55rem .75rem;font-size:.72rem;color:var(--muted)}
+.mc.a{color:var(--accent);font-weight:700}
+.mc.hl{border-left:2px solid var(--accent);color:var(--white)}
+.mock-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:1rem}
+.mstat{background:var(--card);border-radius:4px;padding:.7rem;text-align:center}
+.mstat-n{font-family:var(--fd);font-size:1.35rem;font-weight:800;color:var(--accent);display:block}
+.mstat-l{font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+
+/* STRIP */
+.strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.strip-inner{max-width:1100px;margin:0 auto;padding:1.25rem 2.5rem;display:flex;gap:2rem;align-items:center;flex-wrap:wrap}
+.strip-inner span{font-size:.72rem;color:#3a3a3a;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+
+/* SECTIONS */
+section{max-width:1100px;margin:0 auto;padding:5rem 2.5rem}
+.sec-label{font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem}
+h2{font-family:var(--fd);font-size:clamp(1.9rem,3vw,2.7rem);font-weight:800;line-height:1.12;margin-bottom:.65rem}
+.sec-sub{color:var(--muted);font-size:.95rem;max-width:480px;margin-bottom:3rem}
+
+/* STATS BAR */
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:5rem}
+.stat-item{background:var(--surface);padding:1.75rem;text-align:center}
+.stat-item-n{font-family:var(--fd);font-size:2.2rem;font-weight:800;color:var(--accent);display:block;line-height:1}
+.stat-item-l{font-size:.75rem;color:var(--muted);margin-top:.35rem;display:block}
+
+/* CASE */
+.case-block{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2.5rem;margin-bottom:5rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.case-tag{display:inline-block;background:var(--accent-dark);border:1px solid var(--accent);color:var(--accent);font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.3rem .75rem;border-radius:2px;margin-bottom:1rem}
+.case-block h3{font-family:var(--fd);font-size:1.6rem;font-weight:800;line-height:1.15;margin-bottom:.85rem}
+.case-block p{color:var(--muted);font-size:.9rem;line-height:1.75;margin-bottom:1rem}
+.case-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1rem}
+.cm{background:var(--card);border-radius:6px;padding:1rem;text-align:center}
+.cm-n{font-family:var(--fd);font-size:1.5rem;font-weight:800;color:var(--accent);display:block}
+.cm-l{font-size:.67rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.srv{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.6rem;transition:border-color .25s,background .25s}
+.srv:hover{border-color:var(--border2);background:var(--card2)}
+.srv-icon{font-size:1.4rem;margin-bottom:.85rem}
+.srv h3{font-size:.95rem;font-weight:700;margin-bottom:.4rem}
+.srv p{font-size:.8rem;color:var(--muted);line-height:1.65;margin-bottom:.85rem}
+.srv-tag{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);border:1px solid var(--border);padding:.25rem .6rem;border-radius:2px}
+
+/* PRICING */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2.5rem}
+.plan{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:2rem;position:relative}
+.plan.feat{border-color:var(--accent);background:var(--accent-dark)}
+.plan-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--accent);color:var(--black);font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 14px;border-radius:20px;white-space:nowrap}
+.plan-name{font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.65rem}
+.plan-price{font-family:var(--fd);font-size:2.2rem;font-weight:800;line-height:1;margin-bottom:.2rem}
+.plan-price small{font-size:.95rem;font-weight:500;color:var(--muted)}
+.plan-desc{font-size:.78rem;color:var(--muted);margin-bottom:1.25rem;line-height:1.55}
+.plan-feats{list-style:none;margin-bottom:1.5rem}
+.plan-feats li{font-size:.8rem;color:var(--muted);padding:.38rem 0;border-bottom:1px solid var(--border);display:flex;gap:.5rem;align-items:flex-start}
+.plan-feats li.on{color:var(--white)}
+.plan-feats li::before{content:"—";color:var(--accent);font-weight:700;flex-shrink:0}
+
+/* NICHES */
+.niches{display:grid;grid-template-columns:repeat(4,1fr);gap:.85rem;margin-bottom:3rem}
+.niche{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:1.1rem;transition:border-color .2s,background .2s;cursor:default}
+.niche:hover{border-color:var(--accent);background:var(--accent-dark)}
+.niche-ico{font-size:1.3rem;margin-bottom:.4rem}
+.niche h4{font-size:.82rem;font-weight:700;margin-bottom:.25rem}
+.niche p{font-size:.72rem;color:var(--muted)}
+
+/* ABOUT */
+.about-block{display:grid;grid-template-columns:1fr 1.4fr;gap:3rem;align-items:start}
+.about-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:2rem;display:flex;flex-direction:column;gap:1rem}
+.about-avatar{width:72px;height:72px;border-radius:50%;background:var(--accent-dark);border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:1.4rem;font-weight:800;color:var(--accent)}
+.about-name{font-family:var(--fd);font-size:1.1rem;font-weight:800}
+.about-role{font-size:.8rem;color:var(--muted);margin-top:.2rem}
+.about-skills{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
+.skill-tag{background:var(--card);border:1px solid var(--border);border-radius:3px;font-size:.68rem;font-weight:700;color:var(--muted);padding:.25rem .6rem;letter-spacing:.06em;text-transform:uppercase}
+.about-text p{color:var(--muted);font-size:.95rem;line-height:1.8;margin-bottom:1rem}
+.about-text strong{color:var(--white);font-weight:700}
+
+/* STEPS */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.step{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.5rem;transition:border-color .2s}
+.step:hover{border-color:var(--border2)}
+.step-n{font-family:var(--fd);font-size:.75rem;font-weight:800;color:var(--accent);letter-spacing:.1em;margin-bottom:.85rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+.step h3{font-size:.9rem;font-weight:700;margin-bottom:.4rem}
+.step p{font-size:.78rem;color:var(--muted);line-height:1.6}
+
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.testi{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.5rem}
+.testi-quote{font-size:.88rem;color:var(--white);line-height:1.75;margin-bottom:1.25rem;font-style:italic}
+.testi-quote::before{content:'"';font-family:var(--fd);font-size:2rem;color:var(--accent);display:block;line-height:1;margin-bottom:.25rem}
+.testi-author{display:flex;align-items:center;gap:.75rem}
+.testi-avatar{width:36px;height:36px;border-radius:50%;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;color:var(--accent);flex-shrink:0}
+.testi-name{font-size:.82rem;font-weight:700}
+.testi-biz{font-size:.72rem;color:var(--muted)}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:.5rem;max-width:720px}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.faq-q{padding:1.1rem 1.25rem;font-size:.9rem;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;transition:background .2s;gap:1rem}
+.faq-q:hover{background:var(--card2)}
+.faq-arr{color:var(--accent);font-size:1rem;transition:transform .25s;flex-shrink:0}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-a p{padding:0 1.25rem 1.1rem;font-size:.85rem;color:var(--muted);line-height:1.75}
+.faq-item.open .faq-a{max-height:300px}
+.faq-item.open .faq-arr{transform:rotate(45deg)}
+
+/* FORM */
+.form-wrap{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:3rem;max-width:700px;margin:0 auto}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.fg{display:flex;flex-direction:column;gap:.4rem}
+.fg label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.fg input,.fg select,.fg textarea{background:var(--card);border:1px solid var(--border);border-radius:4px;color:var(--white);font-family:var(--fb);font-size:.88rem;padding:.7rem .9rem;outline:none;transition:border-color .2s;width:100%}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--accent)}
+.fg select option{background:var(--card)}
+.fg textarea{min-height:85px;resize:vertical}
+.fg-full{grid-column:1/-1}
+.form-success{display:none;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.25);border-radius:6px;padding:1.25rem;text-align:center;margin-top:1rem}
+.form-success p{color:var(--green);font-size:.88rem;font-weight:500}
+.form-note{text-align:center;font-size:.72rem;color:var(--muted);margin-top:.75rem}
+.form-note a{color:var(--accent);text-decoration:none}
+
+/* WIDE SECTION */
+.wide-section{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.wide-inner{max-width:1100px;margin:0 auto;padding:5rem 2.5rem}
+
+/* TRANSITION BLOCK */
+.transition-block{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:2rem;display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border)}
+.footer-inner{max-width:1100px;margin:0 auto;padding:3rem 2.5rem;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem}
+.footer-col h4{font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+.footer-col a{display:block;font-size:.82rem;color:var(--muted);text-decoration:none;margin-bottom:.5rem;transition:color .2s}
+.footer-col a:hover{color:var(--white)}
+.footer-col p{font-size:.82rem;color:var(--muted);line-height:1.65}
+.footer-bottom{max-width:1100px;margin:0 auto;padding:1.25rem 2.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem}
+.footer-bottom p{font-size:.75rem;color:var(--muted2)}
+
+/* FLOATING WA */
+.wa-float{position:fixed;bottom:1.5rem;right:1.5rem;z-index:999;background:#25d366;color:#fff;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.3);transition:transform .2s,box-shadow .2s}
+.wa-float:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(37,211,102,.45)}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .hero{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .pricing-grid{grid-template-columns:1fr}
+  .niches{grid-template-columns:1fr 1fr}
+  .about-block{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .stats-bar{grid-template-columns:1fr 1fr}
+  .case-block{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+@media(max-width:600px){
+  .services-grid,.steps{grid-template-columns:1fr}
+  .niches{grid-template-columns:1fr 1fr}
+  .stats-bar{grid-template-columns:1fr 1fr}
+  nav{padding:1rem 1.25rem}
+  section{padding:3.5rem 1.25rem}
+  .hero{padding:3.5rem 1.25rem 3rem}
+  .form-wrap{padding:1.75rem}
+  .footer-inner{grid-template-columns:1fr;padding:2rem 1.25rem}
+  .footer-bottom{padding:1rem 1.25rem;flex-direction:column;align-items:flex-start}
+  .wide-inner{padding:3.5rem 1.25rem}
+  .transition-block{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="#top">HEAVY<em>METAL</em>TECH</a>
+  <div class="nav-links">
+    <a href="#pc">Serviços PC</a>
+    <a href="#sistemas">Sistemas</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contato">Contato</a>
+    <a href="https://wa.me/5511947250711?text=Olá%2C%20vim%20do%20site%20Heavy%20Metal%20Tech" target="_blank" class="nav-cta">WhatsApp</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="top">
+  <div>
+    <div class="badge badge-pulse" style="margin-bottom:1.25rem">Atendimento em todo o Brasil</div>
+    <h1>Tecnologia que <span class="y">realmente</span> funciona pra você</h1>
+    <p class="hero-sub">PC mais rápido. Empresa mais organizada. Da otimização do seu computador ao sistema que vai digitalizar seu negócio.</p>
+    <p class="hero-note">São Paulo, Brasil · Remoto para todo o Brasil</p>
+    <div class="hero-btns">
+      <a href="#contato" class="btn btn-accent">Diagnóstico gratuito</a>
+      <a href="https://wa.me/5511947250711?text=Olá%2C%20vim%20do%20site%20Heavy%20Metal%20Tech" target="_blank" class="btn btn-wa">WhatsApp</a>
+      <a href="#pc" class="btn btn-ghost">Ver serviços ↓</a>
+    </div>
+  </div>
+  <div class="mockup">
+    <div class="mock-topbar"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+    <div class="mock-tabs">
+      <div class="mock-tab active">Ordens de Serviço</div>
+      <div class="mock-tab">Clientes</div>
+      <div class="mock-tab">Relatórios</div>
+    </div>
+    <div class="mock-row"><div class="mc hl a">OS #0051 — Aberta</div><div class="mc">João Silva</div><div class="mc a">R$ 350,00</div></div>
+    <div class="mock-row"><div class="mc hl">OS #0050 — Concluída</div><div class="mc">Maria Souza</div><div class="mc">R$ 180,00</div></div>
+    <div class="mock-row"><div class="mc">OS #0049 — Andamento</div><div class="mc">Carlos Lima</div><div class="mc">R$ 220,00</div></div>
+    <div class="mock-stats">
+      <div class="mstat"><span class="mstat-n">51</span><span class="mstat-l">OS / mês</span></div>
+      <div class="mstat"><span class="mstat-n">R$14k</span><span class="mstat-l">Faturamento</span></div>
+      <div class="mstat"><span class="mstat-n">98%</span><span class="mstat-l">Satisfação</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="strip">
+  <div class="strip-inner">
+    <span>PC & Notebooks</span><span style="color:#2e2e2e">·</span>
+    <span>IA Local</span><span style="color:#2e2e2e">·</span>
+    <span>Assistências Técnicas</span><span style="color:#2e2e2e">·</span>
+    <span>Clínicas</span><span style="color:#2e2e2e">·</span>
+    <span>Pet Shops</span><span style="color:#2e2e2e">·</span>
+    <span>Oficinas</span><span style="color:#2e2e2e">·</span>
+    <span>Salões</span><span style="color:#2e2e2e">·</span>
+    <span>E mais...</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<section style="padding-bottom:0">
+  <div class="stats-bar">
+    <div class="stat-item"><span class="stat-item-n">+200</span><span class="stat-item-l">PCs atendidos remotamente</span></div>
+    <div class="stat-item"><span class="stat-item-n">30 dias</span><span class="stat-item-l">Teste grátis em sistemas</span></div>
+    <div class="stat-item"><span class="stat-item-n">1 rede</span><span class="stat-item-l">Autorizada em piloto ativo</span></div>
+    <div class="stat-item"><span class="stat-item-n">100%</span><span class="stat-item-l">Remoto · Todo o Brasil</span></div>
+  </div>
+</section>
+
+<!-- CASE MINIPA -->
+<section style="padding-top:0">
+  <div class="case-block">
+    <div>
+      <div class="case-tag">Case real · Piloto aprovado</div>
+      <h3>Como a Minipa digitalizou sua rede de assistências técnicas</h3>
+      <p>A Minipa é uma das maiores fabricantes de equipamentos de teste e medição do Brasil. Sua rede de autorizadas controlava tudo em papel — ordens de serviço, histórico de clientes, estoque de peças.</p>
+      <p>Desenvolvemos o <strong style="color:var(--white)">Minipa OS</strong>, um sistema web completo aprovado pela liderança da empresa e hoje em piloto ativo na rede. Zero papel. Histórico completo. Laudos em PDF com um clique.</p>
+      <a href="#contato" class="btn btn-accent" style="margin-top:.5rem">Quero um sistema assim</a>
+    </div>
+    <div>
+      <div class="case-metrics">
+        <div class="cm"><span class="cm-n">100%</span><span class="cm-l">Web · qualquer dispositivo</span></div>
+        <div class="cm"><span class="cm-n">0</span><span class="cm-l">Papel na operação</span></div>
+        <div class="cm"><span class="cm-n">✓</span><span class="cm-l">Aprovado pela liderança</span></div>
+      </div>
+      <div class="mockup" style="background:var(--card)">
+        <div class="mock-topbar"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+        <div class="mock-tabs"><div class="mock-tab active">Minipa OS · Dashboard</div></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:6px">
+          <div class="mc" style="text-align:center;padding:.85rem"><div style="font-family:var(--fd);font-size:1.6rem;font-weight:800;color:var(--accent)">47</div><div style="font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em">OS abertas</div></div>
+          <div class="mc" style="text-align:center;padding:.85rem"><div style="font-family:var(--fd);font-size:1.6rem;font-weight:800;color:var(--accent)">R$14k</div><div style="font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em">Faturamento</div></div>
+        </div>
+        <div class="mc hl" style="margin-bottom:6px;font-size:.75rem;color:var(--white)">Nova OS · ET-3367C — Não liga</div>
+        <div class="mc" style="font-size:.72rem;margin-bottom:6px">Técnico: Will · Status: Em diagnóstico</div>
+        <div style="display:flex;gap:6px">
+          <div style="flex:1;background:var(--accent);border-radius:3px;padding:.4rem;font-size:.68rem;font-weight:700;color:var(--black);text-align:center">Emitir laudo PDF</div>
+          <div style="flex:1;background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:.4rem;font-size:.68rem;color:var(--muted);text-align:center">Enviar e-mail</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PC SERVICES -->
+<section id="pc" style="padding-top:0">
+  <div class="sec-label">Serviços para PC</div>
+  <h2>Seu computador travando?<br>A gente resolve</h2>
+  <p class="sec-sub">Atendimento remoto rápido em todo o Brasil. Diagnóstico, otimização e IA — sem burocracia, com resultado.</p>
+  <div class="services-grid">
+    <div class="srv"><div class="srv-icon">🔍</div><h3>Diagnóstico & Limpeza</h3><p>Varredura de processos, remoção de malware, correção de inicialização, drivers e Windows Update. Relatório ao final.</p><span class="srv-tag">Remoto · 15–30 min</span></div>
+    <div class="srv"><div class="srv-icon">🎮</div><h3>Otimização Gamer (FPS)</h3><p>Ajustes finos de BIOS, GPU, perfil de energia, shader cache e latência. Mais FPS sem trocar uma peça sequer.</p><span class="srv-tag">Sem trocar peças</span></div>
+    <div class="srv"><div class="srv-icon">💿</div><h3>Formatação Inteligente</h3><p>Backup assistido, instalação limpa do Windows, partições corretas, drivers, apps essenciais e hardening de segurança.</p><span class="srv-tag">Windows 10 / 11</span></div>
+    <div class="srv"><div class="srv-icon">🤖</div><h3>IA no seu PC</h3><p>Setup de ChatGPT Desktop e IA local offline (Ollama), automações no Excel e e-mail, Whisper para transcrições. Produtividade real.</p><span class="srv-tag">Produtividade & estudo</span></div>
+    <div class="srv"><div class="srv-icon">⚙️</div><h3>Consultoria de Upgrade</h3><p>Identificamos o gargalo do seu PC, montamos lista de peças custo-benefício e roteiro de upgrade por prioridade. Com links.</p><span class="srv-tag">Links de compra inclusos</span></div>
+    <div class="srv"><div class="srv-icon">🌐</div><h3>Sites Profissionais</h3><p>Landing pages rápidas no GitHub Pages com SEO, WhatsApp e Pixel. Backend (Next.js/Node) quando você precisar escalar.</p><span class="srv-tag">Entrega ágil</span></div>
+  </div>
+
+  <h2 style="margin-top:4.5rem;margin-bottom:.5rem">IA no PC — Planos</h2>
+  <p class="sec-sub" style="margin-bottom:0">Escolha o nível certo de automação pro seu dia a dia.</p>
+  <div class="pricing-grid">
+    <div class="plan">
+      <div class="plan-name">Básico</div>
+      <div class="plan-price"><small>R$</small> 149</div>
+      <p class="plan-desc">ChatGPT Desktop configurado, prompts prontos e atalho global. Ideal para estudos e e-mails.</p>
+      <ul class="plan-feats">
+        <li class="on">ChatGPT Desktop configurado</li>
+        <li class="on">Prompts rápidos prontos</li>
+        <li class="on">Atalho global (AutoHotkey)</li>
+        <li>IA local offline (Ollama)</li>
+        <li>Whisper — transcrição de áudio</li>
+        <li>Automações Excel / e-mail</li>
+      </ul>
+      <a href="https://wa.me/5511947250711?text=Quero%20o%20plano%20Básico%20de%20IA%20no%20PC" target="_blank" class="btn btn-ghost btn-block">Contratar</a>
+    </div>
+    <div class="plan feat">
+      <div class="plan-badge">Mais popular</div>
+      <div class="plan-name">Local (Offline)</div>
+      <div class="plan-price"><small>R$</small> 249</div>
+      <p class="plan-desc">Ollama + modelo local. Funciona 100% offline, sem enviar seus dados para a nuvem.</p>
+      <ul class="plan-feats">
+        <li class="on">Tudo do Básico</li>
+        <li class="on">Ollama instalado e configurado</li>
+        <li class="on">Modelo local para o seu hardware</li>
+        <li class="on">100% offline e privado</li>
+        <li>Whisper — transcrição de áudio</li>
+        <li>Automações Excel / e-mail</li>
+      </ul>
+      <a href="https://wa.me/5511947250711?text=Quero%20o%20plano%20Local%20de%20IA%20no%20PC" target="_blank" class="btn btn-accent btn-block">Contratar</a>
+    </div>
+    <div class="plan">
+      <div class="plan-name">Produtividade+</div>
+      <div class="plan-price"><small>R$</small> 299</div>
+      <p class="plan-desc">Pacote completo com Whisper, automações e mini-treinamento. Para extrair o máximo da IA.</p>
+      <ul class="plan-feats">
+        <li class="on">Tudo do Local</li>
+        <li class="on">Whisper — transcrição de reuniões</li>
+        <li class="on">Automações Excel & e-mail</li>
+        <li class="on">Mini-treinamento de uso incluso</li>
+        <li class="on">Suporte por 7 dias após instalação</li>
+      </ul>
+      <a href="https://wa.me/5511947250711?text=Quero%20o%20plano%20Produtividade%2B%20de%20IA%20no%20PC" target="_blank" class="btn btn-ghost btn-block">Contratar</a>
+    </div>
+  </div>
+
+  <h2 style="margin-top:4.5rem;margin-bottom:.5rem">Sites — Planos</h2>
+  <p class="sec-sub" style="margin-bottom:0">Landing pages rápidas e profissionais, prontas para anúncios e conversão.</p>
+  <div class="pricing-grid">
+    <div class="plan">
+      <div class="plan-name">Landing Page PRO</div>
+      <div class="plan-price"><small>R$</small> 699</div>
+      <p class="plan-desc">1 página focada em conversão com CTA WhatsApp, SEO básico e meta tags para redes sociais.</p>
+      <ul class="plan-feats">
+        <li class="on">Design profissional e responsivo</li>
+        <li class="on">CTA WhatsApp integrado</li>
+        <li class="on">SEO básico otimizado</li>
+        <li class="on">OG tags (preview redes sociais)</li>
+        <li>Captura de leads</li>
+        <li>Automações de follow-up</li>
+      </ul>
+      <a href="https://wa.me/5511947250711?text=Quero%20orçamento%20Landing%20Page%20PRO" target="_blank" class="btn btn-ghost btn-block">Solicitar orçamento</a>
+    </div>
+    <div class="plan feat">
+      <div class="plan-badge">Mais completo</div>
+      <div class="plan-name">Site Lite 3 Seções</div>
+      <div class="plan-price"><small>R$</small> 1.190</div>
+      <p class="plan-desc">Home + Serviços + Contato. Profissional, rápido e otimizado para conversão e anúncios.</p>
+      <ul class="plan-feats">
+        <li class="on">Tudo do Landing PRO</li>
+        <li class="on">3 seções bem estruturadas</li>
+        <li class="on">Formulário de contato</li>
+        <li class="on">Responsivo (mobile first)</li>
+        <li class="on">Pixel de rastreamento</li>
+        <li>Automações de lead</li>
+      </ul>
+      <a href="https://wa.me/5511947250711?text=Quero%20orçamento%20Site%20Lite" target="_blank" class="btn btn-accent btn-block">Solicitar orçamento</a>
+    </div>
+    <div class="plan">
+      <div class="plan-name">Plus IA</div>
+      <div class="plan-price"><small>R$</small> 1.690</div>
+      <p class="plan-desc">Captura de leads automatizada com integrações e automações no seu fluxo de vendas.</p>
+      <ul class="plan-feats">
+        <li class="on">Tudo do Site Lite</li>
+        <li class="on">Captura e gestão de leads</li>
+        <li class="on">Automações de follow-up</li>
+        <li class="on">Integração WhatsApp automática</li>
+        <li class="on">Pixel + rastreamento avançado</li>
+        <li class="on">Proposta sob medida</li>
+      </ul>
+      <a href="https://wa.me/5511947250711?text=Quero%20orçamento%20Site%20Plus%20IA" target="_blank" class="btn btn-ghost btn-block">Solicitar orçamento</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSITION -->
+<section style="padding-top:0;padding-bottom:5rem">
+  <div class="transition-block">
+    <div>
+      <p style="font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem">Além do PC</p>
+      <p style="font-family:var(--fd);font-size:1.2rem;font-weight:800;line-height:1.2">Sua empresa também pode ser mais organizada</p>
+    </div>
+    <p style="color:var(--muted);font-size:.88rem;max-width:340px;line-height:1.7">Se você é dono de negócio e ainda gerencia tudo no papel ou na planilha, desenvolvemos sistemas sob medida pra resolver isso.</p>
+    <a href="#sistemas" class="btn btn-accent">Ver sistemas →</a>
+  </div>
+</section>
+
+<!-- SYSTEMS -->
+<div class="wide-section" id="sistemas">
+  <div class="wide-inner">
+    <div class="sec-label">Sistemas para empresas</div>
+    <h2>Seu negócio ainda roda<br>no <span style="color:var(--accent)">papel?</span></h2>
+    <p class="sec-sub">Sistemas web sob medida para pequenas empresas. Sem planilha, sem improviso. Do jeito que o seu negócio precisa.</p>
+
+    <h3 style="font-family:var(--fd);font-size:1.1rem;font-weight:800;margin-bottom:1rem;color:var(--muted)">Para qualquer segmento</h3>
+    <div class="niches">
+      <div class="niche"><div class="niche-ico">🔧</div><h4>Assistência Técnica</h4><p>OS, laudos, estoque e clientes</p></div>
+      <div class="niche"><div class="niche-ico">🏥</div><h4>Clínicas</h4><p>Agendamentos e prontuários</p></div>
+      <div class="niche"><div class="niche-ico">🐾</div><h4>Pet Shops</h4><p>Banho/tosa, vacinas e vendas</p></div>
+      <div class="niche"><div class="niche-ico">🚗</div><h4>Oficinas</h4><p>OS de veículos e histórico</p></div>
+      <div class="niche"><div class="niche-ico">✂️</div><h4>Salões</h4><p>Agenda e comissões</p></div>
+      <div class="niche"><div class="niche-ico">🏪</div><h4>Varejo</h4><p>Estoque e relatórios</p></div>
+      <div class="niche"><div class="niche-ico">🏫</div><h4>Escolas</h4><p>Matrículas e frequência</p></div>
+      <div class="niche"><div class="niche-ico">📦</div><h4>Seu negócio</h4><p>Qualquer processo manual</p></div>
+    </div>
+
+    <h3 style="font-family:var(--fd);font-size:1.3rem;font-weight:800;margin-bottom:.5rem">Planos de sistema</h3>
+    <p style="color:var(--muted);font-size:.88rem;margin-bottom:2.5rem">Mensalidade simples. Sem fidelidade. Cancele quando quiser.</p>
+    <div class="pricing-grid">
+      <div class="plan">
+        <div class="plan-name">Start</div>
+        <div class="plan-price"><small>R$</small> 150 <small style="font-size:.72rem">/mês</small></div>
+        <p class="plan-desc">Para quem está começando a digitalizar. Simples, funcional e pronto para usar.</p>
+        <ul class="plan-feats">
+          <li class="on">Cadastro de clientes</li>
+          <li class="on">Registro de serviços ou vendas</li>
+          <li class="on">Acesso web — qualquer dispositivo</li>
+          <li>Relatórios avançados</li>
+          <li>Controle de estoque</li>
+          <li>Emissão de PDF</li>
+        </ul>
+        <a href="#contato" class="btn btn-ghost btn-block">Começar grátis por 30 dias</a>
+      </div>
+      <div class="plan feat">
+        <div class="plan-badge">Mais popular</div>
+        <div class="plan-name">Pro</div>
+        <div class="plan-price"><small>R$</small> 300 <small style="font-size:.72rem">/mês</small></div>
+        <p class="plan-desc">Gestão completa. Relatórios, estoque, PDF, e-mail e dashboard em tempo real.</p>
+        <ul class="plan-feats">
+          <li class="on">Tudo do Start</li>
+          <li class="on">Relatórios avançados + gráficos</li>
+          <li class="on">Controle de estoque</li>
+          <li class="on">Emissão de PDF e envio por e-mail</li>
+          <li class="on">Dashboard em tempo real</li>
+          <li class="on">Suporte via WhatsApp</li>
+        </ul>
+        <a href="#contato" class="btn btn-accent btn-block">Começar grátis por 30 dias</a>
+      </div>
+      <div class="plan">
+        <div class="plan-name">Custom</div>
+        <div class="plan-price" style="font-size:1.65rem">Sob consulta</div>
+        <p class="plan-desc">Para necessidades específicas. Desenvolvimento personalizado, integrações e multi-unidade.</p>
+        <ul class="plan-feats">
+          <li class="on">Tudo do Pro</li>
+          <li class="on">Desenvolvimento personalizado</li>
+          <li class="on">Integrações específicas</li>
+          <li class="on">Multi-unidade / rede</li>
+          <li class="on">Suporte prioritário</li>
+        </ul>
+        <a href="#contato" class="btn btn-ghost btn-block">Falar com especialista</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section id="como-funciona">
+  <div class="sec-label">Processo</div>
+  <h2>Do contato ao sistema<br>no ar em dias</h2>
+  <p class="sec-sub">Sem burocracia, sem meses de espera. Você descreve o problema, a gente entrega a solução.</p>
+  <div class="steps">
+    <div class="step"><div class="step-n">01 — Diagnóstico</div><h3>Gratuito e sem compromisso</h3><p>Você preenche o formulário ou chama no WhatsApp. A gente entende o que você precisa resolver.</p></div>
+    <div class="step"><div class="step-n">02 — Proposta</div><h3>Clara e sem surpresas</h3><p>Recebe uma proposta com o que será desenvolvido, prazo e valor. Sem letra miúda, sem taxa escondida.</p></div>
+    <div class="step"><div class="step-n">03 — Desenvolvimento</div><h3>Rápido com atualizações</h3><p>Desenvolvemos com agilidade. Você acompanha o progresso e dá feedback em tempo real.</p></div>
+    <div class="step"><div class="step-n">04 — No ar</div><h3>30 dias grátis pra testar</h3><p>Sistema entregue. Você testa por 30 dias sem pagar nada. Suporte próximo para ajustar o que precisar.</p></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section style="padding-top:0" id="depoimentos">
+  <div class="sec-label">Depoimentos</div>
+  <h2>O que nossos clientes dizem</h2>
+  <p class="sec-sub">Resultados reais de quem já usa.</p>
+  <div class="testi-grid">
+    <div class="testi">
+      <div class="testi-quote">O sistema eliminou completamente o papel da nossa operação. Agora consigo ver tudo pelo celular de qualquer lugar.</div>
+      <div class="testi-author"><div class="testi-avatar">RC</div><div><div class="testi-name">Ricardo C.</div><div class="testi-biz">Assistência Técnica Autorizada · SP</div></div></div>
+    </div>
+    <div class="testi">
+      <div class="testi-quote">Meu PC estava travando todo dia. Em menos de 30 minutos já estava rodando como novo. Atendimento rápido e muito atencioso.</div>
+      <div class="testi-author"><div class="testi-avatar">FM</div><div><div class="testi-name">Fernanda M.</div><div class="testi-biz">Designer Freelancer · RJ</div></div></div>
+    </div>
+    <div class="testi">
+      <div class="testi-quote">A IA local que instalaram no meu PC mudou minha produtividade. Transcrevo reuniões em segundos e não mando dados pra nuvem.</div>
+      <div class="testi-author"><div class="testi-avatar">TL</div><div><div class="testi-name">Tiago L.</div><div class="testi-biz">Consultor · MG</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<div class="wide-section" id="sobre">
+  <div class="wide-inner">
+    <div class="sec-label">Sobre</div>
+    <h2>Tecnologia feita por quem<br>entende o problema de perto</h2>
+    <p class="sec-sub">Não sou uma agência. Sou um técnico que virou desenvolvedor porque viu onde a tecnologia falha na prática.</p>
+    <div class="about-block">
+      <div class="about-card">
+        <div style="display:flex;align-items:center;gap:1rem">
+          <div class="about-avatar">W</div>
+          <div><div class="about-name">Will</div><div class="about-role">Técnico em Eletrônica & Desenvolvedor</div></div>
+        </div>
+        <div style="border-top:1px solid var(--border);padding-top:1rem">
+          <div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.65rem">Stack & habilidades</div>
+          <div class="about-skills">
+            <span class="skill-tag">Python / Flask</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">C#</span>
+            <span class="skill-tag">Eletrônica</span>
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">IA / Ollama</span>
+          </div>
+        </div>
+        <div style="border-top:1px solid var(--border);padding-top:1rem">
+          <div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem">Formação</div>
+          <p style="font-size:.8rem;color:var(--muted);line-height:1.65">2 anos de Engenharia da Computação · Certificações Java e C# · Técnico em Eletrônica na Minipa · São Paulo, Brasil</p>
+        </div>
+      </div>
+      <div class="about-text">
+        <p>Trabalho como <strong>técnico em eletrônica na Minipa</strong> — uma das maiores fabricantes de equipamentos de teste e medição do Brasil. No dia a dia, vi de perto como assistências técnicas perdem tempo, dinheiro e clientes por falta de organização.</p>
+        <p>Então comecei a construir soluções. O <strong>Minipa OS</strong> foi aprovado pela liderança da empresa e está em piloto ativo na rede de autorizadas. Esse foi o ponto de partida — mas o problema não é exclusivo das assistências técnicas.</p>
+        <p>Qualquer pequena empresa que ainda gerencia tudo no papel ou na planilha tem a mesma dor. E eu sei como resolver de forma <strong>rápida, acessível e personalizada</strong> — sem cobrar preço de grande agência.</p>
+        <p>Além dos sistemas, atendo PC, notebook e IA porque acredito que tecnologia boa é aquela que resolve o problema real — seja do usuário comum ou do dono do negócio.</p>
+        <div style="margin-top:1.5rem;display:flex;gap:.75rem;flex-wrap:wrap">
+          <a href="https://wa.me/5511947250711?text=Olá%20Will%2C%20vim%20do%20site%20e%20quero%20conversar" target="_blank" class="btn btn-accent">Falar com o Will</a>
+          <a href="#contato" class="btn btn-ghost">Diagnóstico gratuito</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="sec-label">Dúvidas frequentes</div>
+  <h2>Perguntas frequentes</h2>
+  <p class="sec-sub">As dúvidas mais comuns antes de contratar. Não achou a sua? Chama no WhatsApp.</p>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">O atendimento de PC é mesmo remoto? Como funciona? <span class="faq-arr">+</span></div>
+      <div class="faq-a"><p>Sim, 100% remoto. Usamos ferramentas como AnyDesk ou TeamViewer — você me dá acesso temporário ao seu computador e eu faço o atendimento em tempo real. Você acompanha tudo na tela. Funciona para qualquer cidade do Brasil.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">O sistema para empresa é hospedado onde? Precisa instalar algo? <span class="faq-arr">+</span></div>
+      <div class="faq-a"><p>O sistema é 100% web — você acessa pelo navegador, sem instalar nada. Hospedamos na nuvem e você acessa de qualquer dispositivo: computador, celular ou tablet. Sem necessidade de servidor próprio.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Como funciona os 30 dias grátis de sistema? <span class="faq-arr">+</span></div>
+      <div class="faq-a"><p>Você usa o sistema por 30 dias sem pagar nada e sem compromisso. Se gostar, assina o plano mensal. Se não gostar, não deve nada. O objetivo é você ter certeza que vale a pena antes de qualquer investimento.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Quanto tempo leva para o sistema ficar pronto? <span class="faq-arr">+</span></div>
+      <div class="faq-a"><p>Depende da complexidade. Um sistema básico (cadastro de clientes + registro de serviços) fica pronto em 1 a 2 semanas. Sistemas mais complexos com integrações específicas podem levar de 3 a 4 semanas. Tudo fica claro na proposta antes de começar.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">E se eu precisar de ajustes depois que o sistema estiver no ar? <span class="faq-arr">+</span></div>
+      <div class="faq-a"><p>Ajustes pequenos são inclusos no plano mensal. Para novas funcionalidades ou mudanças significativas no escopo, fazemos uma proposta específica. Nunca tem cobrança surpresa — tudo comunicado e acordado antes.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">A IA local (Ollama) funciona em qualquer PC? <span class="faq-arr">+</span></div>
+      <div class="faq-a"><p>Funciona na maioria dos PCs modernos, mas o desempenho depende da RAM e da GPU. Antes de fechar, fazemos uma avaliação rápida do seu hardware para indicar o modelo de IA mais adequado para a sua máquina.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Posso cancelar o plano de sistema quando quiser? <span class="faq-arr">+</span></div>
+      <div class="faq-a"><p>Sim, sem fidelidade e sem multa. Você avisa com 30 dias de antecedência e cancela. Seus dados ficam disponíveis para exportação por mais 30 dias após o cancelamento.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section id="contato" style="padding-top:0">
+  <div style="text-align:center;margin-bottom:2.5rem">
+    <div class="sec-label" style="display:flex;justify-content:center">Diagnóstico gratuito</div>
+    <h2>Vamos conversar sobre<br>o seu problema?</h2>
+    <p style="color:var(--muted);font-size:.95rem;max-width:440px;margin:.5rem auto 0">Preencha o formulário e entro em contato via WhatsApp em até 24 horas. Sem compromisso.</p>
+  </div>
+  <div class="form-wrap">
+    <div class="form-grid">
+      <div class="fg"><label>Seu nome *</label><input type="text" id="nome" placeholder="João Silva"></div>
+      <div class="fg"><label>WhatsApp *</label><input type="tel" id="tel" placeholder="(11) 99999-9999"></div>
+      <div class="fg"><label>Nome do negócio</label><input type="text" id="empresa" placeholder="Opcional"></div>
+      <div class="fg">
+        <label>Segmento</label>
+        <select id="segmento">
+          <option value="">Selecione...</option>
+          <option>PC / Notebook pessoal</option>
+          <option>Assistência Técnica</option>
+          <option>Clínica / Consultório</option>
+          <option>Pet Shop</option>
+          <option>Oficina</option>
+          <option>Salão de Beleza</option>
+          <option>Loja / Varejo</option>
+          <option>Escola / Cursos</option>
+          <option>Outro</option>
+        </select>
+      </div>
+      <div class="fg fg-full">
+        <label>O que você precisa?</label>
+        <select id="servico">
+          <option value="">Selecione...</option>
+          <option>Diagnóstico / Otimização de PC</option>
+          <option>IA no PC (ChatGPT / Ollama)</option>
+          <option>Formatação do PC</option>
+          <option>Consultoria de upgrade</option>
+          <option>Site profissional</option>
+          <option>Sistema para minha empresa</option>
+          <option>Ainda não sei — quero conversar</option>
+        </select>
+      </div>
+      <div class="fg fg-full">
+        <label>Descreva seu problema ou necessidade</label>
+        <textarea id="msg" placeholder="Ex: Meu PC trava muito... / Quero organizar as ordens de serviço da minha oficina... / Preciso de um site profissional..."></textarea>
+      </div>
+    </div>
+    <button class="btn btn-accent" style="width:100%;padding:1rem;font-size:1rem;border-radius:4px" id="submit-btn" onclick="enviarForm()">Quero meu diagnóstico gratuito →</button>
+    <div class="form-success" id="form-success"><p>✓ Perfeito! Abrindo WhatsApp com suas informações. Responderei em até 24 horas!</p></div>
+    <p class="form-note">Resposta em até 24h · Sem compromisso · <a href="https://wa.me/5511947250711" target="_blank">Ou chame direto no WhatsApp</a></p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <a class="logo" href="#top" style="display:inline-block;margin-bottom:.85rem">HEAVY<em>METAL</em>TECH</a>
+      <p>Tecnologia que funciona de verdade. PC, IA e sistemas para pequenas empresas em todo o Brasil.</p>
+      <p style="margin-top:.75rem">São Paulo, SP · Brasil</p>
+    </div>
+    <div class="footer-col">
+      <h4>Serviços PC</h4>
+      <a href="#pc">Diagnóstico & Limpeza</a>
+      <a href="#pc">Otimização Gamer</a>
+      <a href="#pc">Formatação</a>
+      <a href="#pc">IA no PC</a>
+      <a href="#pc">Sites Profissionais</a>
+    </div>
+    <div class="footer-col">
+      <h4>Sistemas</h4>
+      <a href="#sistemas">Para empresas</a>
+      <a href="#sistemas">Plano Start</a>
+      <a href="#sistemas">Plano Pro</a>
+      <a href="#sistemas">Plano Custom</a>
+      <a href="#depoimentos">Depoimentos</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <a href="https://wa.me/5511947250711" target="_blank">WhatsApp</a>
+      <a href="#contato">Formulário</a>
+      <a href="#sobre">Sobre o Will</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Heavy Metal Tech · Todos os direitos reservados</p>
+    <p>São Paulo, SP · Brasil</p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5511947250711?text=Olá%2C%20vim%20do%20site%20Heavy%20Metal%20Tech" target="_blank" title="Fale no WhatsApp">💬</a>
+
+<script>
+function toggleFaq(el){
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if(!isOpen) item.classList.add('open');
+}
+
+function enviarForm(){
+  const nome = document.getElementById('nome').value.trim();
+  const tel = document.getElementById('tel').value.trim();
+  const empresa = document.getElementById('empresa').value.trim();
+  const segmento = document.getElementById('segmento').value;
+  const servico = document.getElementById('servico').value;
+  const msg = document.getElementById('msg').value.trim();
+
+  if(!nome || !tel){
+    alert('Por favor, preencha seu nome e WhatsApp para continuar.');
+    return;
+  }
+
+  const texto = encodeURIComponent(
+    `Olá Will! Vim do site Heavy Metal Tech.\n\n` +
+    `*Nome:* ${nome}\n` +
+    `*WhatsApp:* ${tel}\n` +
+    (empresa ? `*Empresa:* ${empresa}\n` : '') +
+    (segmento ? `*Segmento:* ${segmento}\n` : '') +
+    (servico ? `*Preciso de:* ${servico}\n` : '') +
+    (msg ? `*Mensagem:* ${msg}` : '')
+  );
+
+  document.getElementById('form-success').style.display = 'block';
+  const btn = document.getElementById('submit-btn');
+  btn.textContent = '✓ Enviado! Abrindo WhatsApp...';
+  btn.style.opacity = '0.6';
+  btn.disabled = true;
+
+  setTimeout(() => {
+    window.open(`https://wa.me/5511947250711?text=${texto}`, '_blank');
+  }, 700);
+}
+</script>
+</body>
+</html>
